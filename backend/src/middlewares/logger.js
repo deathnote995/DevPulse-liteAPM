@@ -19,7 +19,8 @@ const transports=[
         }
     ),
     new winston.transports.File({
-        filename:'logs/info.log'
+        filename:'logs/info.log',
+        level:'http'
     }),
     new winston.transports.Console({
         format:winston.format.combine(
@@ -30,7 +31,7 @@ const transports=[
 ]
 
 export const logger=winston.createLogger({
-    level:Process.env.NODE_ENV==='development'?'debug':'info',
+    level:process.env.NODE_ENV==='development'?'debug':'info',
     levels,
     format:logFormat,
     transports
