@@ -1,6 +1,6 @@
 import { logger, httpLogger } from "./middlewares/logger.js";
 import healthRouter from "./routes/health.js"
-import systemRouter from "./routes/system.js"
+import systemRouter from "./routes/systemV2_InMemory.js"
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
