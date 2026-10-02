@@ -1,11 +1,18 @@
+import dns from 'dns'
+dns.setServers(['8.8.8.8','8.8.4.4'])
+
+
 import { logger, httpLogger } from "./middlewares/logger.js";
 import healthRouter from "./routes/health.js"
-import systemRouter from "./routes/systemV2_InMemory.js"
+import systemRouter from "./routes/systemV3_mongo.js"
+import { connectDB } from "./config/db.js";
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 
 dotenv.config()
+
+connectDB()
 
 const app=express()
 const PORT=process.env.PORT||5000
