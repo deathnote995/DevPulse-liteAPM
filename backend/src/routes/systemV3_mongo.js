@@ -35,7 +35,7 @@ setInterval(async()=>{
     catch(err){
         logger.error(`Database ingestion error : ${err.message}`)
     }
-},3000)
+},10000)
 
 /**
  * @route   GET /api/system/metrics
