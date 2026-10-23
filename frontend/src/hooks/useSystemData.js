@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import {getMetrics, getServiceStatus} from '../api/systemApi.js'
 
-const useSystemMetrics=()=> {
+export const useSystemMetrics=()=> {
     return useQuery({
         queryKey:['system-metrics'],
         queryFn:getMetrics,
@@ -9,7 +9,7 @@ const useSystemMetrics=()=> {
     })
 }
 
-const useSystemServices=()=>{
+export const useSystemServices=()=>{
     return useQuery({
         queryKey:['system-services'],
         queryFn:getServiceStatus,
@@ -17,4 +17,4 @@ const useSystemServices=()=>{
     })
 }
 
-export default {useSystemMetrics,useSystemServices}
+// export {useSystemMetrics,useSystemServices}
