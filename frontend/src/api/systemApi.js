@@ -15,4 +15,11 @@ export const getServiceStatus=async()=>{
     return await response.json()
 }
 
+export const getLogs=async()=>{
+    const response=await fetch(`${baseUrl}/logs`)
+    if(!response.ok)
+        throw new Error('Error in fetching logs')
+    return await response.json()
+}
+
 // export default {getMetrics,getServiceStatus}

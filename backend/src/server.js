@@ -4,7 +4,8 @@ dns.setServers(['8.8.8.8','8.8.4.4'])
 
 import { logger, httpLogger } from "./middlewares/logger.js";
 import healthRouter from "./routes/health.js"
-import systemRouter from "./routes/systemV3_mongo.js"
+import systemRouter from "./routes/systemV4_mongo.js"
+import logRouter from "./routes/log.js"
 import { connectDB } from "./config/db.js";
 import express from 'express'
 import dotenv from 'dotenv'
@@ -27,6 +28,8 @@ app.use(httpLogger)
 
 app.use('/api',healthRouter)
 app.use('/api/system',systemRouter)
+app.use('/api',logRouter)
+
 
 app.use((err,req,res,next)=>{
     res.status(err.status||500).json({
